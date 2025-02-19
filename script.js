@@ -9,7 +9,7 @@ const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
-  pin: 111,
+  pin: 1111,
 };
 
 const account2 = {
@@ -74,3 +74,48 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+//SLICE METHOD --------------
+
+//make new array starting from C, which is [2]
+console.log(arr.slice(2));
+//make new array starting from C and end before E, which is [4]
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+//always the last element
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+//just make a new copy
+console.log(arr.slice());
+//same thing as copy
+console.log([...arr]);
+
+//SPLICE METHOD -------------
+//changes the original array. Shows it without the first two elements, and then the extracted elements
+//console.log(arr.splice(2));
+//this just deletes the last element
+arr.splice(-1);
+console.log(arr);
+//went to position 1(b) and deleted 2 elements(b and c)
+arr.splice(1, 2);
+console.log(arr);
+
+//REVERSE METHOD ---------------
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+//mutates the array, keep that in mind
+console.log(arr2.reverse());
+console.log(arr2);
+
+//CONCAT METHOD ------------------
+//joins two arrays. Doesn't mutate
+const letters = arr.concat(arr2);
+console.log(letters);
+//same thing
+console.log([...arr, ...arr2]);
+
+//JOIN METHOD --------------------
+//puts characters between the elements in a array
+console.log(letters.join(' - '));
