@@ -75,6 +75,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+/*
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
 //SLICE METHOD --------------
@@ -119,3 +120,5 @@ console.log([...arr, ...arr2]);
 //JOIN METHOD --------------------
 //puts characters between the elements in a array
 console.log(letters.join(' - '));
+
+*/
