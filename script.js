@@ -122,3 +122,22 @@ console.log([...arr, ...arr2]);
 console.log(letters.join(' - '));
 
 */
+
+//AT METHOD
+const arr = [23, 11, 64, 55];
+console.log(arr[0]);
+console.log(arr.at(0));
+
+//there doesn't seem to be much usefulness to this, but take a look
+
+//both these logs "get the last element"
+console.log(arr[arr.length - 1]);
+//makes the last element a new array and takes it off from the array
+console.log(arr.slice(-1)[0]);
+
+//but, using "at"... You get the same result, much simpler. The most common case to use "at"
+console.log(arr.at(-1));
+
+//works on strings, takes the first and last letter
+console.log('jonas'.at(0));
+console.log('jonas'.at(-1));
