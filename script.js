@@ -135,7 +135,7 @@ console.log(arr[arr.length - 1]);
 //makes the last element a new array and takes it off from the array
 console.log(arr.slice(-1)[0]);
 
-//but, using "at"... You get the same result, much simpler. The most common case to use "at"
+//but, using "at"... You get the same result, much simpler. The most common case to use "at":
 console.log(arr.at(-1));
 
 //works on strings, takes the first and last letter
