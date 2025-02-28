@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+//const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -122,7 +122,7 @@ console.log([...arr, ...arr2]);
 console.log(letters.join(' - '));
 
 */
-
+/*
 //AT METHOD
 const arr = [23, 11, 64, 55];
 console.log(arr[0]);
@@ -141,3 +141,29 @@ console.log(arr.at(-1));
 //works on strings, takes the first and last letter
 console.log('jonas'.at(0));
 console.log('jonas'.at(-1));
+*/
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//for (const movement of movements) {
+//entries creates an array of arrays
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    //Math.abs removes the minus sign
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('---- FOREACH ----');
+//in both cases, the 'movement' is the current element of the array as an argument, so it's first function(200), then function(450), and so forth
+//the names not matter, but the order is always the first being the element, the second is the index, and the thir is the entire array
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${mov}`);
+  } else {
+    //Math.abs removes the minus sign
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+  }
+}); //you can't break from a forEach loop. If you need to break from it, you need to use a forOf
