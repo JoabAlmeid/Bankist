@@ -65,12 +65,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
 //const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
@@ -142,6 +136,7 @@ console.log(arr.at(-1));
 console.log('jonas'.at(0));
 console.log('jonas'.at(-1));
 */
+/*
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -167,3 +162,24 @@ movements.forEach(function (mov, i, arr) {
     console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
   }
 }); //you can't break from a forEach loop. If you need to break from it, you need to use a forOf
+*/
+
+//FOREACH WITH A MAP
+const currencies = new Map([
+  // in a map, the first value is the 'key' (like an index) and the rest are elements
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+//FOREACH WITH A SET
+const currenciesUnique = new Set([['USD', 'GBP', 'USD', 'EUR', 'EUR']]);
+console.log(currenciesUnique);
+//in case of Sets, they don't have a key, so it's value, value, set
+currenciesUnique.forEach(function (value, key, set) {
+  console.log(`${key}: ${value}`);
+});
