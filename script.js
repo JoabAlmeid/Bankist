@@ -163,6 +163,7 @@ movements.forEach(function (mov, i, arr) {
   }
 }); //you can't break from a forEach loop. If you need to break from it, you need to use a forOf
 */
+/*
 
 //FOREACH WITH A MAP
 const currencies = new Map([
@@ -183,3 +184,5 @@ console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, key, set) {
   console.log(`${key}: ${value}`);
 });
+
+*/
