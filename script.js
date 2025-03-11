@@ -81,6 +81,12 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
 //pegar siglas do nome. Deixa tudo em minúsculo, divide em strings tudo entre os espaços, retorna a primeira letra, e depois junta tudo na mesma string. Feito um "side effect"(fazer algo e não retornar valor): todas as atuais accounts terão uma nova propriedade que são as siglas
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -93,9 +99,7 @@ const createUsernames = function (accs) {
       .join('');
   });
 };
-
 createUsernames(accounts);
-console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -250,6 +254,8 @@ const movementsDescriptions = movements.map(
 
 */
 
+/*
+
 //this boolean makes only the properties in 'movements' that are above 0 enter the 'deposits' array
 const deposits = movements.filter(function (mov) {
   return mov > 0;
@@ -264,3 +270,27 @@ console.log(depositsFor);
 
 const withdrawals = movements.filter(mov => mov < 0);
 console.log(withdrawals);
+
+*/
+
+//REDUCE METHOD
+console.log(movements);
+
+//o reduce volta apenas um único valor quando soma tudo dentro do array, e nele tem o acumulador (a atual soma de tudo), o valor atual, o index do atual, e o array inteiro. O zero é o valor inicial do acumulador
+const balance = movements.reduce(function (accum, cur, i, arr) {
+  console.log(`Iteration ${i}: ${accum}`);
+  return accum + cur;
+}, 0);
+console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+
+//Reduce também trás o Maximum Value
+//se o acumulador for maior que o atual, trás o acumulador. Senão, traz o atual
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
