@@ -222,7 +222,7 @@ currenciesUnique.forEach(function (value, key, set) {
 });
 
 */
-
+/*
 const euroToUsd = 1.1;
 
 //map creates a new array, pass through each element, then returns it mutated. This is more modern and used
@@ -247,3 +247,20 @@ const movementsDescriptions = movements.map(
     )}`
 );
 // console.log(movementsDescriptions);
+
+*/
+
+//this boolean makes only the properties in 'movements' that are above 0 enter the 'deposits' array
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(movements);
+console.log(deposits);
+
+//same thing as using the filter above
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
