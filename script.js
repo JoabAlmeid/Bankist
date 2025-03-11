@@ -81,6 +81,22 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+//pegar siglas do nome. Deixa tudo em minúsculo, divide em strings tudo entre os espaços, retorna a primeira letra, e depois junta tudo na mesma string. Feito um "side effect"(fazer algo e não retornar valor): todas as atuais accounts terão uma nova propriedade que são as siglas
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLocaleLowerCase()
+      .split(' ')
+      .map(function (name) {
+        return name[0];
+      })
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -213,13 +229,13 @@ const euroToUsd = 1.1;
 const movementsUSD = movements.map(function (mov) {
   return mov * euroToUsd;
 });
-console.log(movements);
-console.log(movementsUSD);
+// console.log(movements);
+// console.log(movementsUSD);
 
 //same thing as using the map method, but here you create a new array, loops through the original, and puts the values on the created array; all manually
 const movementsUSDfor = [];
 for (const mov of movements) movementsUSDfor.push(mov * euroToUsd);
-console.log(movementsUSDfor);
+// console.log(movementsUSDfor);
 
 //same thing as the others, but now arrow func
 const movementsUSDarrow = movements.map(mov => mov * euroToUsd);
@@ -230,4 +246,4 @@ const movementsDescriptions = movements.map(
       mov
     )}`
 );
-console.log(movementsDescriptions);
+// console.log(movementsDescriptions);
