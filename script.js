@@ -273,10 +273,10 @@ console.log(withdrawals);
 
 */
 
-//REDUCE METHOD
+//REDUCE METHOD (most powerful method)
 console.log(movements);
 
-//o reduce volta apenas um único valor quando soma tudo dentro do array, e nele tem o acumulador (a atual soma de tudo), o valor atual, o index do atual, e o array inteiro. O zero é o valor inicial do acumulador
+//o reduce volta apenas um único valor quando soma tudo dentro do array, e nele tem o acumulador (atual soma de tudo), o valor atual, o index do atual, e o array inteiro. O zero é o valor inicial do acumulador
 const balance = movements.reduce(function (accum, cur, i, arr) {
   console.log(`Iteration ${i}: ${accum}`);
   return accum + cur;
