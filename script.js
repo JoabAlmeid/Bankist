@@ -326,8 +326,6 @@ checkDogs.forEach(function (dogAge, i, arr) {
 
 const dogAge = [16, 6, 10, 5, 6, 1, 4];
 
-//map creates a new array, pass through each element, then returns it mutated. This is more modern and used
-
 const calcAverageHumanAge1 = dogAge.map(function (mov) {
   if (mov <= 2) {
     return mov * 2;
@@ -362,21 +360,20 @@ const calcAverageHumanAge3 = dogAge
     return acc + mov;
   }, 0);
 
-const calcAverageHumanAge4 =
-  dogAge
-    .map(function (mov) {
-      if (mov <= 2) {
-        return mov * 2;
-      } else {
-        return 16 + mov * 4;
-      }
-    })
-    .filter(function (mov) {
-      return mov > 18;
-    })
-    .reduce(function (acc, mov) {
-      return acc + mov;
-    }, 0) / dogAge.length;
+const calcAverageHumanAge4 = dogAge
+  .map(function (mov) {
+    if (mov <= 2) {
+      return mov * 2;
+    } else {
+      return 16 + mov * 4;
+    }
+  })
+  .filter(function (mov) {
+    return mov > 18;
+  })
+  .reduce(function (acc, mov, i, arr) {
+    return acc + mov / arr.length;
+  }, 0);
 
 console.log(calcAverageHumanAge1);
 console.log(calcAverageHumanAge2);
