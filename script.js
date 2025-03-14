@@ -294,3 +294,24 @@ const max = movements.reduce((acc, mov) => {
   else return mov;
 }, movements[0]);
 console.log(max);
+
+//DESAFIO 1 IDADE DE CACHORROS
+//test data 1: [3, 5, 2, 12, 7], [4, 1, 15, 8, 3]
+//test data 2: [9,16, 6, 8, 3], [10, 5, 6, 1, 4]
+
+const dogArr1 = [3, 5, 2, 12, 7];
+const dogArr2 = [4, 1, 15, 8, 3];
+
+const dogArr1Corrected = dogArr1.slice(1, -2);
+console.log(dogArr1Corrected);
+
+const checkDogs = dogArr1Corrected.concat(dogArr2);
+console.log(checkDogs);
+
+checkDogs.forEach(function (dogAge, i, arr) {
+  if (dogAge < 3) {
+    console.log(`Dog number ${i + 1} is still a puppy`);
+  } else {
+    console.log(`Dog number ${i + 1} is an adult, and is ${dogAge} years old.`);
+  }
+});
