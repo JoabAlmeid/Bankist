@@ -252,7 +252,7 @@ const movementsDescriptions = movements.map(
 );
 // console.log(movementsDescriptions);
 
-*/
+
 
 /*
 
@@ -273,6 +273,7 @@ console.log(withdrawals);
 
 */
 
+/*
 //REDUCE METHOD (most powerful method)
 console.log(movements);
 
@@ -294,7 +295,9 @@ const max = movements.reduce((acc, mov) => {
   else return mov;
 }, movements[0]);
 console.log(max);
+*/
 
+/*
 //DESAFIO 1 IDADE DE CACHORROS
 //test data 1: [3, 5, 2, 12, 7], [4, 1, 15, 8, 3]
 //test data 2: [9,16, 6, 8, 3], [10, 5, 6, 1, 4]
@@ -315,3 +318,88 @@ checkDogs.forEach(function (dogAge, i, arr) {
     console.log(`Dog number ${i + 1} is an adult, and is ${dogAge} years old.`);
   }
 });
+*/
+
+//DESAFIO 2 IDADE DE CACHORROS
+//test data 1: [5, 2, 4, 1, 15, 8, 3]
+//test data 2: [16, 6, 10, 5, 6, 1, 4]
+
+const dogAge = [16, 6, 10, 5, 6, 1, 4];
+
+//map creates a new array, pass through each element, then returns it mutated. This is more modern and used
+
+const calcAverageHumanAge1 = dogAge.map(function (mov) {
+  if (mov <= 2) {
+    return mov * 2;
+  } else {
+    return 16 + mov * 4;
+  }
+});
+
+const calcAverageHumanAge2 = dogAge
+  .map(function (mov) {
+    if (mov <= 2) {
+      return mov * 2;
+    } else {
+      return 16 + mov * 4;
+    }
+  })
+  .filter(function (mov) {
+    return mov > 18;
+  });
+const calcAverageHumanAge3 = dogAge
+  .map(function (mov) {
+    if (mov <= 2) {
+      return mov * 2;
+    } else {
+      return 16 + mov * 4;
+    }
+  })
+  .filter(function (mov) {
+    return mov > 18;
+  })
+  .reduce(function (acc, mov) {
+    return acc + mov;
+  }, 0);
+
+const calcAverageHumanAge4 =
+  dogAge
+    .map(function (mov) {
+      if (mov <= 2) {
+        return mov * 2;
+      } else {
+        return 16 + mov * 4;
+      }
+    })
+    .filter(function (mov) {
+      return mov > 18;
+    })
+    .reduce(function (acc, mov) {
+      return acc + mov;
+    }, 0) / dogAge.length;
+
+console.log(calcAverageHumanAge1);
+console.log(calcAverageHumanAge2);
+console.log(calcAverageHumanAge3);
+console.log(calcAverageHumanAge4);
+
+const calcAverageHumanAge1123 = movements.reduce(function (accum, cur, i, arr) {
+  //console.log(`Iteration ${i}: ${accum}`);
+  return accum + cur;
+}, 0);
+//console.log(balance);
+
+//this boolean makes only the properties in 'movements' that are above 0 enter the 'deposits' array
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+//console.log(movements);
+//console.log(deposits);
+
+//same thing as using the filter above
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+//console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+//console.log(withdrawals);
