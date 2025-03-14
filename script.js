@@ -324,8 +324,11 @@ checkDogs.forEach(function (dogAge, i, arr) {
 //test data 1: [5, 2, 4, 1, 15, 8, 3]
 //test data 2: [16, 6, 10, 5, 6, 1, 4]
 
-const dogAge = [16, 6, 10, 5, 6, 1, 4];
+const dogAge1 = [5, 2, 4, 1, 15, 8, 3];
+const dogAge2 = [16, 6, 10, 5, 6, 1, 4];
 
+//se quiser usar isso aqui pra ver melhor os entre-processos, mude o nome dos arrays de dogAge1 e 2 para dogAge
+/*
 const calcAverageHumanAge1 = dogAge.map(function (mov) {
   if (mov <= 2) {
     return mov * 2;
@@ -360,43 +363,27 @@ const calcAverageHumanAge3 = dogAge
     return acc + mov;
   }, 0);
 
-const calcAverageHumanAge4 = dogAge
-  .map(function (mov) {
-    if (mov <= 2) {
-      return mov * 2;
-    } else {
-      return 16 + mov * 4;
-    }
-  })
-  .filter(function (mov) {
-    return mov > 18;
-  })
-  .reduce(function (acc, mov, i, arr) {
-    return acc + mov / arr.length;
-  }, 0);
+  */
+const calcAverageHumanAge = function (ages) {
+  const calcAverageHumanAge4 = ages
+    .map(function (age) {
+      if (age <= 2) {
+        return age * 2;
+      } else {
+        return 16 + age * 4;
+      }
+    })
+    .filter(function (age) {
+      return age > 18;
+    })
+    .reduce(function (acc, age, i, arr) {
+      return acc + age / arr.length;
+    }, 0);
+  return calcAverageHumanAge4;
+};
 
-console.log(calcAverageHumanAge1);
-console.log(calcAverageHumanAge2);
-console.log(calcAverageHumanAge3);
-console.log(calcAverageHumanAge4);
-
-const calcAverageHumanAge1123 = movements.reduce(function (accum, cur, i, arr) {
-  //console.log(`Iteration ${i}: ${accum}`);
-  return accum + cur;
-}, 0);
-//console.log(balance);
-
-//this boolean makes only the properties in 'movements' that are above 0 enter the 'deposits' array
-const deposits = movements.filter(function (mov) {
-  return mov > 0;
-});
-//console.log(movements);
-//console.log(deposits);
-
-//same thing as using the filter above
-const depositsFor = [];
-for (const mov of movements) if (mov > 0) depositsFor.push(mov);
-//console.log(depositsFor);
-
-const withdrawals = movements.filter(mov => mov < 0);
-//console.log(withdrawals);
+// console.log(calcAverageHumanAge1);
+// console.log(calcAverageHumanAge2);
+// console.log(calcAverageHumanAge3);
+console.log(calcAverageHumanAge(dogAge1));
+console.log(calcAverageHumanAge(dogAge2));
