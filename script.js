@@ -102,7 +102,7 @@ const calcDisplaySummary = function (movements) {
     .filter(mov => mov > 0)
     .map(deposit => (deposit * 1.2) / 100)
     .filter((int, i, arr) => {
-      console.log(arr);
+      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -412,7 +412,7 @@ const calcAverageHumanAge = function (ages) {
 console.log(calcAverageHumanAge(dogAge1));
 console.log(calcAverageHumanAge(dogAge2));
 */
-
+/*
 const euroToUsd = 1.1;
 console.log(movements);
 
@@ -424,3 +424,14 @@ const totalDepositsUSD = movements
   })
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalDepositsUSD);
+*/
+
+//loops through the array and retrieves element(s). Needs a condition and is a boolean, returns the first element that satisfies condition
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
