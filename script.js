@@ -197,8 +197,6 @@ btnClose.addEventListener('click', function (e) {
       acc => acc.username === currentAccount.username
     );
 
-    console.log(index);
-
     //Deletes account
     accounts.splice(index, 1);
 
@@ -519,4 +517,25 @@ console.log(accounts);
 
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
+*/
+
+/*
+// The new findLast and findLastIndex Methods
+//contrary to findIndex, these two will loop from the last to the first
+
+console.log(movements);
+const lastWithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastWithdrawal);
+
+('Your last large movement was X movements ago');
+
+const latestLargeMovementIndex = movements.findLastIndex(
+  mov => Math.abs(mov) > 1000
+);
+console.log(latestLargeMovementIndex);
+console.log(
+  `Your last large movement was ${
+    movements.length - latestLargeMovementIndex
+  } movements ago`
+);
 */
