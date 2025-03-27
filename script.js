@@ -185,6 +185,22 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  //checks if the loan you are asking is greater than zero and if the current highest deposit is greater than 10% of the loan
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    //add movement
+    currentAccount.movements.push(amount);
+
+    //update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -539,3 +555,26 @@ console.log(
   } movements ago`
 );
 */
+
+//SOME method (if any element satisfy a condition)
+console.log(movements);
+//procura algo igual
+console.log(movements.includes(-130));
+//cria condição para achar algo igual. Mesma coisa do de cima
+console.log(movements.some(mov => mov === -130));
+
+// const anyDeposits = movements.some(mov => mov > 0);
+const anyDeposits = movements.some(function (mov) {
+  if (mov > 1500) return mov;
+});
+console.log(anyDeposits);
+
+//EVERY method (if every element satisfy a condition)
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+//Separate callback
+const deposit = mov => mov < 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
