@@ -556,6 +556,7 @@ console.log(
 );
 */
 
+/*
 //SOME method (if any element satisfy a condition)
 console.log(movements);
 //procura algo igual
@@ -578,3 +579,41 @@ const deposit = mov => mov < 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+*/
+
+//FLAT AND FLATMAP
+//resumes and shows all values as a single array
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+//putting a number in flat makes it resume deeper
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+//like that, we can take all the accounts movements, resume it with flat, then add up
+// const accountMovements = accounts.map((acc => acc.movements));
+
+//chained version (flat)
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+//chained version (flatMap)
+const overalBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+//manual version
+// const accountMovements = accounts.map(function (acc) {
+//   return acc.movements;
+// });
+// console.log(accountMovements);
+
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+
+// const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
