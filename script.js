@@ -580,6 +580,7 @@ console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
 */
+/*
 
 //FLAT AND FLATMAP
 //resumes and shows all values as a single array
@@ -617,3 +618,39 @@ console.log(overalBalance);
 
 // const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
 // console.log(overalBalance);
+*/
+
+//SORTING ARRAYS
+//convert everything to strings then sort alphabetically
+//Strings
+const owners = ['Jonas', 'Zack', 'Adam', 'Martha'];
+console.log(owners.sort());
+
+//Numbers
+//Doesn't sort ascendently. It first checks the numbers with minus, then sort then by the first algarythm
+console.log(movements);
+// console.log(movements.sort());
+
+//in sort, a is current value and b is next value
+//if return < 0 then A, B (keeps order)
+//if return > 0 then B, A (switch order)
+
+//ASCEND
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return 0;
+});
+console.log(movements);
+//we can also do it like this, because if a is greater than b, it returns negative. If not, returns positive
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+//DESCEND
+movements.sort((a, b) => {
+  if (a > b) return 0;
+  if (b > a) return 1;
+});
+console.log(movements);
+//we can also do it like this, because if b is greater than a, it returns negative. If not, returns positive
+movements.sort((a, b) => b - a);
+console.log(movements);
