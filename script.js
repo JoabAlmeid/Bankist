@@ -62,10 +62,13 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 //creates a new element on the index, inside the 'movements' container div. Takes the movements, runs through each and display each
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  //in movs, if sort is true (if a > b), in movements, in a new array (slice), sort it ascendently, and if not, movs becomes movements (in case everything is already in order)
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -220,6 +223,15 @@ btnClose.addEventListener('click', function (e) {
     containerApp.style.opacity = 0;
   }
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  //!sorted makes it flip. If it was true, now it's false, and vice-versa
+  displayMovements(currentAccount.movements, !sorted);
+  //this is what lets sorted be flipped. When the click happens, the opposite of false is called. If this didn't exist, it would always be true after the click, because the let never changes. But now, it changes the let, ready to be clicked again
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -620,6 +632,7 @@ console.log(overalBalance);
 // console.log(overalBalance);
 */
 
+/*
 //SORTING ARRAYS
 //convert everything to strings then sort alphabetically
 //Strings
@@ -654,3 +667,4 @@ console.log(movements);
 //we can also do it like this, because if b is greater than a, it returns negative. If not, returns positive
 movements.sort((a, b) => b - a);
 console.log(movements);
+*/
