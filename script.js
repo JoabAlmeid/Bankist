@@ -147,7 +147,7 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
-  //the interrogation is basically a "if exists". Without it, it would be currentAccount && [the rest]
+  //the interrogation is basically a "if exists" Without it, it would be currentAccount && currentAccount.pin [the rest]
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     //Display UI and welcome message
     //takes the full name, splits it into two divided right at where the space is, and use only the first division. And changes the HTML
